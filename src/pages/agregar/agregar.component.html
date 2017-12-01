@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{nombreLista|placeHolder}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Nueva Lista</h1>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-label>Nombre de la lista</ion-label>
+        <ion-input type="text" [(ngModel)]="nombreLista" name="nombreLista"></ion-input>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Item:</ion-label>
+        <ion-input (keyup.enter)="agregar()" type="text" [(ngModel)]="nombreItem" name="nombreItem"></ion-input>
+      </ion-item>
+      <button ion-button class="button-block" (click)="agregar()">
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+        Agregar
+      </button>
+    </ion-card-content>
+  </ion-card>
+  <!--items-->
+  <ion-card>
+    <ion-card-header>
+      <h3>Items Agregados</h3>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let item of items;let i = index">
+          <button ion-button color="dark" clear>
+            {{item.nombre}}
+          </button>
+          <button ion-button outline item-right color="danger" (click)="borrarItem(i)">
+              <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+              borrar item {{i+1}}
+          </button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button icon-left class="button-block">
+    <ion-icon ios="ios-basket" md="md-basket"></ion-icon>
+    Agregar Lista
+  </button>
+</ion-content>

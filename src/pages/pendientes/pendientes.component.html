@@ -1,9 +1,44 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Pendientes</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Tareas en proceso!!</h2>  
+  <!--<h2>Tareas en proceso!!</h2>
+  <hr>
+        <ul>
+        <div class="row" *ngFor="let lista of _service.listas">
+          <li class="col-xs-12">
+            <div class="col-xs-6">{{lista.nombre}}</div>
+            <div class="col-xs-6">{{lista.terminada}}</div>
+          </li>
+        </div>
+      </ul>
+    -->
+    <ion-card *ngFor="let lista of _service.listas">
+      <ion-item>
+        BOTON!!
+      </ion-item>
+      <h2>{{lista.nombre}}</h2>
+      <ion-list>
+        <ion-item><!-- Advanced: explicity set the icon for each platform -->
+          <ion-icon ios="ios-cloud-circle" md="md-cloud-circle"></ion-icon>
+          something
+        </ion-item>
+        <ion-item><!-- Advanced: explicity set the icon for each platform -->
+          <ion-icon ios="ios-cloud-circle" md="md-cloud-circle"></ion-icon>
+          something
+        </ion-item>
+        <ion-item><!-- Advanced: explicity set the icon for each platform -->
+          <ion-icon ios="ios-cloud-circle" md="md-cloud-circle"></ion-icon>
+          something
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="irAgregar()">
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+      </button>
+  </ion-fab>
 </ion-content>
