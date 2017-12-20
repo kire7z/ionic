@@ -13,7 +13,7 @@
         <ion-input type="text" [(ngModel)]="nombreLista" name="nombreLista"></ion-input>
       </ion-item>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content >
       <ion-item>
         <ion-label>Item:</ion-label>
         <ion-input (keyup.enter)="agregar()" type="text" [(ngModel)]="nombreItem" name="nombreItem"></ion-input>
@@ -25,7 +25,7 @@
     </ion-card-content>
   </ion-card>
   <!--items-->
-  <ion-card>
+  <ion-card *ngIf="items.length>0">
     <ion-card-header>
       <h3>Items Agregados</h3>
     </ion-card-header>
@@ -43,7 +43,7 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
-  <button ion-button icon-left class="button-block">
+  <button ion-button icon-left class="button-block" (click)="guardarLista()">
     <ion-icon ios="ios-basket" md="md-basket"></ion-icon>
     Agregar Lista
   </button>
